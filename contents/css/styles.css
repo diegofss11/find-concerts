@@ -1,0 +1,10 @@
+body {
+    margin:25px;
+}
+
+
+.buttonsDiv{
+	height: 300px;
+	border: none;
+	top: 50%;
+}
