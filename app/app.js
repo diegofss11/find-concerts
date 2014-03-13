@@ -12,6 +12,11 @@ app.config(function ($routeProvider) {
         .when('/editConcert/:eventID',
             {
                 controller: 'EditConcertController',
+                templateUrl: '/app/views/concertDetailView.html'
+            })
+		.when('/editConcert/',
+            {
+                controller: 'EditConcertController',
                 templateUrl: '/app/views/editConcertView.html'
             })
         .when('/searchConcert',
