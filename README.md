@@ -3,7 +3,6 @@
 * BackEnd: C# - Consuming webServices through WCF 
 * FrontEnd [AngularJS](http://www.angularjs.org/) on the client
 * CSS based on [Foundation - Zurb](http://foundation.zurb.com/)
-* 
 
 ## Installation
 
