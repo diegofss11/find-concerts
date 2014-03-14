@@ -1,0 +1,52 @@
+<div class="backLink"><a href='javascript:history.back()'><<</a></div>
+<br/>
+<form>
+  <fieldset>
+    <legend>Create Concert</legend>
+    <div class="large-6 columns">
+		<label>Singer
+			<input type="text" placeholder="Singer" ng-model="newConcert.singer">
+		</label>
+	</div>
+	<div class="large-6 columns">
+		<label>Location
+			<input type="text" placeholder="Location" ng-model="newConcert.location">
+		</label>
+	</div>
+	<div class="large-3 columns">
+		<label>Price
+			<input type="text" placeholder="Price" ng-model="newConcert.price">
+		</label>
+	</div>
+	<div class="large-4 columns">
+      <label>Gender
+        <select ng-model="newConcert.gender">
+          <option value="rock">Rock</option>
+          <option value="blues">Blues</option>
+          <option value="country">Country</option>
+          <option value="jazz">Jazz</option>
+        </select>
+      </label>
+    </div>
+	<div class="large-2 columns">
+		<label>Date
+			<input type="text" placeholder="Date" ng-model="newConcert.date">
+		</label>
+	</div>
+	<div class="large-2 columns">
+		<label>Time
+			<input type="text" placeholder="Time" ng-model="newConcert.time">
+		</label>
+	</div>
+	<div class="large-12 columns">
+      <label>Additional Info
+        <textarea placeholder="Additional Info" ng-model="newConcert.additionalInfo"></textarea>
+      </label>
+    </div>
+	
+	<div class="large-12 columns divButtonsRegister">
+		<a href="#" class="button tiny [radius round]" ng-click="addConcert()">Done</a>
+		<a href="#" class="button tiny [radius round] alert">Cancel</a>
+	</div>
+  </fieldset>
+</form>

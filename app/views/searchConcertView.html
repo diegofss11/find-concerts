@@ -1,1 +1,103 @@
-Search View
+<div class="backLink"><a href='javascript:history.back()'><<</a></div>
+<div class="large-12 columns">
+	<!-- Side Bar -->
+	<div class="large-4 small-12 columns divSearch">
+
+		<div class="large-12 columns">
+			<label><b>Singer</b>
+				<input type="text" ng-model="concert.singer" placeholder="John Mayer, AC/DC ...">
+			</label>
+		</div>
+
+		<div class="large-12 columns">
+			<label><b>Gender</b>
+				<input type="text" ng-model="concert.gender" placeholder="Rock, Blues, Jazz, Samba ...">
+			</label>
+		</div>
+		<div class="large-12 columns divButtonSearch">
+			<a href="#" class="button tiny [radius round]" ng-click="searchBy()">Search</a>
+		</div>
+	</div>
+
+	<!-- End Side Bar -->
+	<li data-ng-repeat="concert in concerts">{{ concert.singer}} - {{ concert.location }}</li>
+
+	<!-- Thumbnails -->
+	<div class="large-8 columns">
+	  <div class="row">
+
+		<div class="large-4 small-6 columns">
+		  <img src="http://placehold.it/1000x1000&text=Concert 1">
+
+		  <div class="panel">
+			<a href="#" class="button tiny [radius round]">Details</a>
+			<h6 class="subheader">$000.00</h6>
+		  </div>
+		</div>
+
+		<div class="large-4 small-6 columns">
+		  <img src="http://placehold.it/500x500&text=Concert 2">
+
+		  <div class="panel">
+			<a href="#" class="button tiny [radius round]">Details</a>
+			<h6 class="subheader">$000.00</h6>
+		  </div>
+		</div>
+
+		<div class="large-4 small-6 columns">
+		  <img src="http://placehold.it/500x500&text=Concert 3">
+
+		  <div class="panel">
+			<a href="#" class="button tiny [radius round]">Details</a>
+			<h6 class="subheader">$000.00</h6>
+		  </div>
+		</div>
+
+		<div class="large-4 small-6 columns">
+		  <img src="http://placehold.it/500x500&text=Concert 4">
+
+		  <div class="panel">
+			<a href="#" class="button tiny [radius round]">Details</a>
+			<h6 class="subheader">$000.00</h6>
+		  </div>
+		</div>
+
+		<div class="large-4 small-6 columns">
+		  <img src="http://placehold.it/500x500&text=Concert 5">
+
+		  <div class="panel">
+			<a href="#" class="button tiny [radius round]">Details</a>
+			<h6 class="subheader">$000.00</h6>
+		  </div>
+		</div>
+
+		<div class="large-4 small-6 columns">
+		  <img src="http://placehold.it/500x500&text=Concert 6">
+
+		  <div class="panel">
+			<a href="#" class="button tiny [radius round]">Details</a>
+			<h6 class="subheader">$000.00</h6>
+		  </div>
+		</div>
+	</div>
+	<!-- End Thumbnails -->
+
+
+	<!-- Managed By -->
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel">
+				<div class="row">
+					<div class="large-2 small-6 columns">
+						<img src="http://placehold.it/300x300&text=Site Owner">
+					</div>
+					<div class="large-10 small-6 columns">
+						<strong>Searched for {{ concert.singer}} / {{ concert.gender}} <hr/></strong>
+					</div>
+				</div>
+		  </div>
+		</div>
+	</div>
+	<!-- End Managed By -->
+	</div>
+</div>    

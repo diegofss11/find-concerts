@@ -8,3 +8,23 @@ body {
 	border: none;
 	top: 50%;
 }
+
+.divButtonsRegister{
+	padding-top: 20px;
+	text-align:right;
+}
+
+.divButtonSearch{
+	text-align:right;
+}
+
+.divSearch{
+	border: solid #dddddd;
+	border-width: 0 1px 1px 0;	
+}
+
+.backLink{
+	font-size: 20px;
+	font-weight: bold;
+	padding-bottom: 2px;
+}
