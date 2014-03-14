@@ -1,8 +1,8 @@
 ## Purpose
 
-The idea is show how the AngularJS can consumes a webservice through WCF (Windows Conmunication Foundation) which is a tool often used to implement and deploy a SOA. 
+The idea is show how the AngularJS can consume a webservice through WCF (Windows Conmunication Foundation) which is a tool often used to implement and deploy a SOA. 
 
-This is a software developed for academic proposal.
+This software is for academic proposal
 
 ## Stack
 
