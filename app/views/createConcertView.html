@@ -1,6 +1,6 @@
 <div class="backLink"><a href='javascript:history.back()'><<</a></div>
 <br/>
-<form>
+<form ng-submit="addConcert()" >
   <fieldset>
     <legend>Create Concert</legend>
     <div class="large-6 columns">
@@ -45,8 +45,8 @@
     </div>
 	
 	<div class="large-12 columns divButtonsRegister">
-		<a href="#" class="button tiny [radius round]" ng-click="addConcert()">Done</a>
-		<a href="#" class="button tiny [radius round] alert">Cancel</a>
+		<button class="button tiny [radius round]" type="submit" >Done</button>
+		<a href='javascript:history.back()' class="button tiny [radius round] alert">Cancel</a>
 	</div>
   </fieldset>
 </form>

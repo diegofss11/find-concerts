@@ -29,7 +29,7 @@ app.controller('EditConcertController', function ($scope, $routeParams, concertS
 
 app.controller('SearchConcertController', function ($scope, concertService) {
 	$scope.findAll = function(){
-		concertService.findAll();
+		$scope.concerts = concertService.findAll();
 	}
 	
 	$scope.searchBy = function(){

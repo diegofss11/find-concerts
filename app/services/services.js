@@ -35,13 +35,13 @@ app.service('concertService', function () {
 	this.searchBy = function (concert) {
 		var singer = concert.singer,
 			gender = concert.gender,
-			concertsMatched = {};
+			concertsMatched = [];
 			
 		console.log("Searching for: " + singer + " and " + gender);
         
 		for (var i = 0; i < concerts.length; i++) {
             if (concerts[i].singer === singer && concerts[i].gender == gender) {
-                concertsMatched.push{concerts[i]};
+                concertsMatched.push(concerts[i]);
             }
         }
         return concertsMatched;

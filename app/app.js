@@ -1,4 +1,4 @@
-var app = angular.module('customersApp', ['ngRoute']);
+var app = angular.module('concertApp', ['ngRoute']);
 
 //This configures the routes and associates each route with a view and a controller
 app.config(function ($routeProvider) {
