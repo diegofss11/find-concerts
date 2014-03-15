@@ -2,7 +2,7 @@
 <!-- defining a namespace - a module -->
 <html ng-app="concertApp">
 	<head>
-		<title>BuscaShows</title>
+		<title>* Find Concerts *</title>
 		<!-- styles -->
 		<link href="contents/css/foundation.css" rel="stylesheet" />
 		<link href="contents/css/normalize.css" rel="stylesheet" />
@@ -11,13 +11,7 @@
 	<!-- defines a controllers for the body -->
 	<body>
 		<!-- Header and Nav -->
-		<div class="row">
-			<div class="large-12 columns">
-			  <ul class="button-group right">
-				<li><a href="#" class="button">Logar</a></li>
-			  </ul>
-			</div>
-		</div>  
+		<div class="row" id="loginDiv"><!-- injected through load javascript function - login.html --></div>  
  
 		<!-- Logo (Image) -->
 		 <div class="row">
@@ -26,8 +20,6 @@
 			<hr>
 			</div>
 		  </div>
-		
-		<object name="foo" type="text/html" data="foo.inc"></object>
 		
 		<!-- Main content -->
 		<div class="row" ng-view></div>
@@ -44,18 +36,27 @@
 			</div>
 			
 			<!-- Jquery and Angular Libs -->
-			<script src="contents/js/jquery-1.11.0.min.js"></script>    
-			<script src="contents/js/angular.min.js"></script>
-			<script src="contents/js/angular-route.js"></script>
+			<script src="/contents/js/jquery-1.11.0.min.js"></script>
+			<script src="/contents/js/angular.min.js"></script>
+			<script src="/contents/js/angular-route.js"></script>
 			
 			<!-- UI Libs -->
-			<script src="contents/js/foundation.min.js"></script>
+			<script src="/contents/js/foundation/foundation.js"></script>
+			<script src="/contents/js/foundation/foundation.reveal.js"></script>
+			<!-- <script src="contents/js/localization/angular-locale_pt-br.js"></script> -->
+			<script src="/contents/js/localization/angular-locale_en-us.js"></script>
 			
 			<!-- App libs -->
-			<script src="app/app.js"></script>
-			<script src="app/controllers/controllers.js"></script>	
-			<script src="app/services/services.js"></script>			
-			<script src="app/directives/animatedView.js"></script>
+			<script src="/app/app.js"></script>
+			<script src="/app/controllers/controllers.js"></script>	
+			<script src="/app/services/services.js"></script>			
+			<script src="/app/directives/animatedView.js"></script>
+		
+			<!-- javascript utils for application -->
+			<script src="/contents/js/utils.js"></script>
 		</footer>  
 	</body>
+	<script>
+		$(document).foundation();
+	</script>
 </html>

@@ -28,5 +28,10 @@ app.config(function ($routeProvider) {
                 controller: 'SearchConcertController',
                 templateUrl: '/app/views/searchConcertView.html'
             })
+		.when('/passwordRestore',
+            {
+                controller: 'PasswordRestoreController',
+                templateUrl: '/app/views/passwordRestoreView.html'
+            })			
         .otherwise({ redirectTo: '/' });
 });

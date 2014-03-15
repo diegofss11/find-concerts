@@ -1,0 +1,23 @@
+<div class="large-12 columns">
+	<ul class="button-group right">
+		<li>
+			<a href="#" data-reveal-id="loginModal" data-reveal class="button">Logar</a>
+		</li>
+	</ul>
+	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>
+		<span class="loginSpan1">Login in</span> <br/><span class="loginSpan2">to your account</span>
+		<form ng-submit="login()" >
+			<div class="large-12 columns" style="padding: 20px;" >
+				<input type="text" placeholder="Email">
+			</div>
+			<div class="large-12 columns" style="padding: 20px; padding-top: 0px" >
+				<input type="password" placeholder="Password">
+			</div>
+			<div class="large-12 columns">
+				<button class="button small [radius round]" type="submit" >Login</button>
+			</div>
+			<div class="lostYourPasswordDiv"><a href="#/passwordRestore">Lost your password?</a></div>
+		</form>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+</div>

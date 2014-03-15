@@ -59,6 +59,12 @@ body {
 	vertical-align: middle;
 }
 
+.loginModalDiv{
+	width: 30%;
+	text-align: center;
+	margin-left: -15%;
+}
+
 .detailLink{
 	font-size: 15px;
 	text-align:center;
@@ -70,4 +76,13 @@ body {
 	height: 422px;
 	min-height: 211px;
 	overflow-y: scroll; 
+}
+
+.loginSpan1{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.loginSpan2{
+	font-size: 15px;
 }
