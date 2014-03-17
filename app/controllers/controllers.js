@@ -36,3 +36,13 @@ app.controller('SearchConcertController', function ($scope, concertService) {
 		$scope.concerts = concertService.searchBy($scope.concert);
 	}
 });
+
+app.controller('LoginController', function ($scope, concertService) {
+	$scope.createAccount = function(){
+		console.log("Create Account for: " + $scope.email + " "+ $scope.password);
+	}
+	
+	$scope.passwordRecover = function(){
+		console.log("Password Recovered for: " + $scope.email);
+	}
+});

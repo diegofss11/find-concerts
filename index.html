@@ -11,7 +11,7 @@
 	<!-- defines a controllers for the body -->
 	<body>
 		<!-- Header and Nav -->
-		<div class="row" id="loginDiv"><!-- injected through load javascript function - login.html --></div>  
+		<div class="row" id="loginDiv" ng-controller="LoginController"><!-- injected through load javascript function - login.html --></div>  
  
 		<!-- Logo (Image) -->
 		 <div class="row">
@@ -55,8 +55,5 @@
 			<!-- javascript utils for application -->
 			<script src="/contents/js/utils.js"></script>
 		</footer>  
-	</body>
-	<script>
-		$(document).foundation();
-	</script>
+	</body>	
 </html>

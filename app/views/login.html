@@ -1,11 +1,17 @@
 <div class="large-12 columns">
 	<ul class="button-group right">
 		<li>
-			<a href="#" data-reveal-id="loginModal" data-reveal class="button">Logar</a>
+			<div id="user-info" class="large 6-columns"></div>
+		</li>
+		<li>
+			<a href="#" data-reveal-id="loginModal" id="loginButton" data-reveal class="button">Logar</a>
+			<a href="#" id="logoutButton" class="button">Logout</a>
 		</li>
 	</ul>
 	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>
 		<span class="loginSpan1">Login in</span> <br/><span class="loginSpan2">to your account</span>
+		<br/>
+		<a class="facebookLoginLink" id="loginFacebookLink" >Log in with Facebook</a>
 		<form ng-submit="login()" >
 			<div class="large-12 columns" style="padding: 20px;" >
 				<input type="text" placeholder="Email">
@@ -16,8 +22,50 @@
 			<div class="large-12 columns">
 				<button class="button small [radius round]" type="submit" >Login</button>
 			</div>
-			<div class="lostYourPasswordDiv"><a href="#/passwordRestore">Lost your password?</a></div>
 		</form>
-		<a class="close-reveal-modal">&#215;</a>
+		<div class="createAccountDiv">
+			<a href="#" data-reveal-id="createAccountModal" data-reveal>Create account</a>
+		</div> 
+		<div class="lostYourPasswordDiv">
+			<a href="#" data-reveal-id="lostPasswordModal" data-reveal>Lost your password?</a>
+			<div id="lostPasswordModal" class="reveal-modal tiny" data-reveal>
+				<h3>Forgot your password?</h3>
+				Please enter your email address below, we will send you an email message with a link to enter a new password for your account.
+				<br/><br/>
+				<form ng-submit="passwordRecover()" >
+					<div class="large-12 columns">
+						<label>E-mail Address
+							<input type="text" ng-model="email">
+						</label>
+					</div>
+					<button class="button tiny [radius round]" type="submit" >Submit</button>
+				</form>
+				<a class="close-reveal-modal">×</a>
+			</div>
+		</div>
+		<div>
+			<a class="close-reveal-modal">×</a>
+		</div>
 	</div>
+	
+	<div id="createAccountModal" class="reveal-modal createAccountModalDiv tiny" data-reveal>
+		<form ng-submit="createAccount()" >
+			<fieldset>
+				<legend>Create Account</legend>
+				<div class="large-12 columns">
+					<label>Email
+						<input type="email" placeholder="Email" ng-model="email">
+					</label>
+				</div>
+				<div class="large-12 columns">
+					<label>Password
+						<input type="password" placeholder="Password" ng-model="password">
+					</label>
+				</div>
+			<button class="button small [radius round]" type="submit" >Create</button>	
+			</fieldset>
+		</form>
+		<a class="close-reveal-modal">×</a>
+	</div>	
+	<br/>		
 </div>

@@ -86,3 +86,28 @@ body {
 .loginSpan2{
 	font-size: 15px;
 }
+
+.createAccountDiv{
+	font-weight: bold;
+	font-size: 16px;
+	padding-bottom: 25px;
+}
+
+.facebookLoginLink{
+	background-image: url("/contents/img/facebookLogin.png");
+	background-color: #3b5998;
+	color: #FFFFFF;
+}
+
+.createAccountModalDiv{
+	text-align: center;
+}
+
+#user-info{
+	width: 210px;
+	height: 75px;
+}
+
+#user-info img{
+	width: 50px;
+	height: 60px;
