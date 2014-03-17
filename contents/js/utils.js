@@ -4,36 +4,17 @@ $( document ).ready(function() {
 
 function init(){
 	//injecting Login page in index.html
-	$("#loginDiv").load("/app/views/login.html", function(){
-		$(document).foundation();
-		initElementVisibilities();
-	});		
-	initEventListeners();	
+				
 }
 
-function initElementVisibilities(){
-	$('#logoutButton').hide();
-}
-
-function initEventListeners(){
-	$(document).on('click', '#loginFacebookLink', function() {
-		$("body").css("cursor", "wait");
-		$.ajaxSetup({ cache: true });
-		$.getScript('//connect.facebook.net/en_UK/all.js', function(){
-			loginFacebook();
-		});
-	});		
-	
-	$(document).on('click', '#logoutButton', function() {
-		FB.logout(handleSessionResponse);
-		$('#loginButton').show();
-		$(this).hide();
-	});
-}
-
-function loginFacebook(){
+function loginFacebook($scope){
 	// initialize the Facebook Connect JS object by calling the init function. It only requires the API key.
-	FB.init({apiKey:'456155277848170'});
+	FB.init(
+		{
+			apiKey:'456155277848170',
+			cookie: true
+		}
+	);
 
 	// get the login status of the current user
 	FB.getLoginStatus(handleSessionResponse);
@@ -64,20 +45,19 @@ function loginFacebook(){
         }
 		// if we have a session, query for the user's profile picture and name
         FB.api(
-          {
-            method: 'fql.query',
-            queries: {
-				query1:  'SELECT pic FROM profile WHERE id=' + FB.getUserID(),
-				query2:  'SELECT first_name FROM profilefirst_name WHERE id=' + FB.getUserID()
+			{
+				method: 'fql.query',
+				query: 'SELECT username, pic FROM profile WHERE id=' + FB.getUserID()				
+			},
+			function(response) {
+				if(response.error_msg == "" || response.error_msg == undefined){
+					var user = response[0];
+					$('#user-info').html('<img src="' + user.pic + '">' + user.name).show('fast');
+					$scope.isLoginButtonVisible = false;
+					$scope.isLogoutButtonVisible = true;
+					$("body").css("cursor", "default");
+				}
 			}
-          },
-          function(response) {
-            var user = response[0];
-            $('#user-info').html('<img src="' + user.pic + '">' + user.name).show('fast');
-			$('#logoutButton').show();
-			$('#loginButton').hide();
-			$("body").css("cursor", "default");
-          }
         );		
 	}
 }

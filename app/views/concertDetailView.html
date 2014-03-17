@@ -1,1 +1,57 @@
-Detail View
+<div class="pageTitle">{{pageTitle}}</div>
+<div class="backLink"><a href='javascript:history.back()'><<</a></div>
+<br/>
+<form id="concertDetailForm" ng-init="showConcert()" ng-submit="addConcert()" >
+  <fieldset>
+    <legend>Edit Concert</legend>
+    <div class="large-6 columns">
+		<label>Singer
+			<input type="text" placeholder="Singer" ng-model="concert.singer" >
+		</label>
+	</div>
+	<div class="large-6 columns">
+		<label>Location
+			<input type="text" placeholder="Location" ng-model="concert.location" >
+		</label>
+	</div>
+	<div class="large-3 columns">
+		<label>Price
+			<input type="text" placeholder="Price" ng-model="concert.price" >
+		</label>
+	</div>
+	<div class="large-4 columns">
+      <label>Gender
+        <select ng-model="concert.gender" >
+          <option value="rock">Rock</option>
+          <option value="blues">Blues</option>
+          <option value="country">Country</option>
+          <option value="jazz">Jazz</option>
+        </select>
+      </label>
+    </div>
+	<div class="large-2 columns">
+		<label>Date
+			<input type="text" placeholder="Date" ng-model="concert.date" >
+		</label>
+	</div>
+	<div class="large-2 columns">
+		<label>Time
+			<input type="text" placeholder="Time" ng-model="concert.time" >
+		</label>
+	</div>
+	<div class="large-12 columns">
+      <label>Additional Info
+        <textarea placeholder="Additional Info" ng-model="concert.additionalInfo" ></textarea>
+      </label>
+    </div>
+	
+	<div class="large-12 columns divButtonsRegister">
+		<button id="editButton"   class="button tiny secondary [radius round]" ng-show="isEditButtonVisible" ng-click="editButtonEvent()" >Edit</button>
+		<button id="updateButton" class="button tiny [radius round]" type="submit" ng-show="isUpdateButtonVisible" ng-click="updateButtonEvent()" >Update</button>
+		<button id="cancelButton" class="button tiny [radius round] alert" ng-show="isCancelButtonVisible" ng-click="cancelButtonEvent()">Cancel</a>
+	</div>
+  </fieldset>
+</form>
+
+<!-- javascript utils for application -->
+<script src="/contents/js/concertDetails.js"></script>

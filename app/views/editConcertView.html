@@ -1,1 +1,21 @@
-Edit View
+<div class="backLink"><a href='javascript:history.back()'><<</a></div>
+<div class="large-12 columns" ng-init="searchByAuthor()">
+	<!-- Thumbnails -->
+	<div class="large-12 columns resultsDiv">
+	    <div class="row">
+			<div ng-repeat="concert in concerts | orderBy:'date'" class="large-4 small-6 columns">
+				<div class="concertTopDiv">
+					<div class="singerDiv">{{concert.singer}}</div>
+					<br/> 
+					<div class="locationDiv">{{concert.location}} - {{concert.date | date}}</div>
+					<br/>
+					<div class="priceDiv">{{concert.price | currency}}</div>
+				</div>
+				<div class="panel" style="height: 50px; text-align:center">
+					<a href="#/editConcert/{{concert.id}}" class="detailLink" ng-model="EditConcertController" ng-click="">Edit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- var query = FB.Data.query('SELECT eid, uid FROM event_member WHERE uid = 104821622923594'); -->

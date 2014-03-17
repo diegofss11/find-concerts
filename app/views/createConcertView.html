@@ -1,8 +1,9 @@
+<div class="pageTitle">{{pageTitle}}</div>
 <div class="backLink"><a href='javascript:history.back()'><<</a></div>
 <br/>
 <form ng-submit="addConcert()" >
   <fieldset>
-    <legend>Create Concert</legend>
+    <legend>Concert Information</legend>
     <div class="large-6 columns">
 		<label>Singer
 			<input type="text" placeholder="Singer" ng-model="newConcert.singer">
@@ -45,7 +46,7 @@
     </div>
 	
 	<div class="large-12 columns divButtonsRegister">
-		<button class="button tiny [radius round]" type="submit" >Done</button>
+		<button class="button tiny [radius round]" type="submit" >Create</button>
 		<a href='javascript:history.back()' class="button tiny [radius round] alert">Cancel</a>
 	</div>
   </fieldset>

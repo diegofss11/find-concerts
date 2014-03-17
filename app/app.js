@@ -20,7 +20,7 @@ app.config(function ($routeProvider) {
             })
 		.when('/editConcert/',
             {
-                controller: 'EditConcertController',
+                controller: 'SearchConcertController',
                 templateUrl: '/app/views/editConcertView.html'
             })
         .when('/searchConcert',
