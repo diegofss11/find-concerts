@@ -5,7 +5,7 @@
 		</li>
 		<li>
 			<a href="#" id="loginButton" ng-click="loginEvent()" class="button" data-reveal-id="loginModal" data-reveal  ng-show="isLoginButtonVisible">Login</a>
-			<a href="#" id="logoutButton" ng-click="logoutEvent()" class="button" ng-show="isLogoutButtonVisible">Logout</a>
+			<a href="#" id="logoutButton" ng-click="logoutEvent()" class="button" ng-hide="isLoginButtonVisible">Logout</a>
 		</li>
 	</ul>
 	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>

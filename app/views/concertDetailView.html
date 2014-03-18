@@ -47,8 +47,8 @@
 	
 	<div class="large-12 columns divButtonsRegister">
 		<button id="editButton"   class="button tiny secondary [radius round]" ng-show="isEditButtonVisible" ng-click="editButtonEvent()" >Edit</button>
-		<button id="updateButton" class="button tiny [radius round]" type="submit" ng-show="isUpdateButtonVisible" ng-click="updateButtonEvent()" >Update</button>
-		<button id="cancelButton" class="button tiny [radius round] alert" ng-show="isCancelButtonVisible" ng-click="cancelButtonEvent()">Cancel</a>
+		<button id="updateButton" class="button tiny [radius round]" type="submit" ng-hide="isUpdateButtonVisible" ng-click="updateButtonEvent()" >Update</button>
+		<button id="cancelButton" class="button tiny [radius round] alert" ng-hide="isCancelButtonVisible" ng-click="cancelButtonEvent()">Cancel</a>
 	</div>
   </fieldset>
 </form>

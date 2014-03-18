@@ -1,4 +1,4 @@
-app.service('concertService', function () {
+moduleApp.service('concertService', function () {
 	this.findAll = function () {
         return concerts;
     };
