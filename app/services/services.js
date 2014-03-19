@@ -4,8 +4,8 @@ moduleApp.service('concertService', function () {
     };
 	
 	this.addConcert = function (newConcert) {
-        var topID = concerts.length + 1,
-			authorId = FB.getUserID();
+        var topID = concerts.length + 1;
+			//authorId = FB.getUserID();
 		
         concerts.push({
             id: topID,
@@ -17,7 +17,7 @@ moduleApp.service('concertService', function () {
 			date: newConcert.date + newConcert.time,
 			likes: 0,
 			unlikes: 0,
-			authorId: authorId
+			authorId: 0
         });
 		
 		console.log("Saving - Singer: " + newConcert.singer + 

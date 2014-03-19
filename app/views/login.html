@@ -1,17 +1,17 @@
 <div class="large-12 columns">
 	<ul class="button-group right">
 		<li>
-			<div id="user-info" ng-show class="large 6-columns"></div>
+			<div user-info ng-hide="isLoginButtonVisible" class="large 6-columns"></div>
 		</li>
 		<li>
-			<a href="#" id="loginButton" ng-click="loginEvent()" class="button" data-reveal-id="loginModal" data-reveal  ng-show="isLoginButtonVisible">Login</a>
-			<a href="#" id="logoutButton" ng-click="logoutEvent()" class="button" ng-hide="isLoginButtonVisible">Logout</a>
+			<a href="#" data-reveal-id="loginModal" ng-show="isLoginButtonVisible" data-reveal class="button">Login</a>
+			<a href="#" ng-hide="isLoginButtonVisible" class="button">Logout</a>
 		</li>
 	</ul>
 	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>
 		<span class="loginSpan1">Login in</span> <br/><span class="loginSpan2">to your account</span>
 		<br/>
-		<a class="facebookLoginLink" ng-click="facebookLoginEvent()" id="loginFacebookLink">Log in with Facebook</a>
+		<a class="facebookLoginLink" id="loginFacebookLink" ng-click="loginWithFacebook()" >Log in with Facebook</a>
 		<form ng-submit="login()" >
 			<div class="large-12 columns" style="padding: 20px;" >
 				<input type="text" placeholder="Email">

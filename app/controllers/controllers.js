@@ -6,16 +6,17 @@ moduleApp.controller('HomePageController', function ($scope, concertService) {
 
 moduleApp.controller('CreateConcertController', function ($scope, concertService) {
 	$scope.pageTitle = "Create Concert";
+	$scope.showAlert = false;
+	
 	
 	$scope.addConcert = function(){
 		concertService.addConcert($scope.newConcert);
+		$scope.showAlert = true;
 	}
 });
 
 moduleApp.controller('EditConcertController', function ($scope, $routeParams, concertService) {
 	$scope.pageTitle = "Update Concerts";
-	$scope.isCancelButtonVisible = false;
-	$scope.isUpdateButtonVisible = false;
 	$scope.isEditButtonVisible = true;
 	
 	$scope.showConcert = function(){
@@ -27,41 +28,20 @@ moduleApp.controller('EditConcertController', function ($scope, $routeParams, co
 
 	$scope.editButtonEvent = function(){
 		$scope.isEditButtonVisible = false;
-		//$scope.isUpdateButtonVisible = true;
-		//$scope.isCancelButtonVisible = true;
-		
-		//disablingFields(false);
 	}
 	
 	$scope.cancelButtonEvent = function(){
-		/*$(this).hide();
-		$('#updateButton').hide();
-		$('#editButton').show();
-		disablingFields(true);*/
-		
-		//$scope.isCancelButtonVisible = false;
-		//$scope.isUpdateButtonVisible = false;
 		$scope.isEditButtonVisible = true;
-		
-		
 	}
 	
 	$scope.updateButtonEvent = function(){
-		/*$(this).hide();
-		$('#cancelButton').hide();
-		$('#editButton').show();
-		disablingFields(true);*/
-		
-		//$scope.isUpdateButtonVisible = false;
-		//$scope.isCancelButtonVisible = false;
 		$scope.isEditButtonVisible = true;
-		
-	}    
+	}  
+	
 });
 
 moduleApp.controller('SearchConcertController', function ($scope, concertService) {
 	$scope.pageTitle = "Search Concerts";
-	
 	
 	$scope.findAll = function(){
 		$scope.concerts = concertService.findAll();
@@ -74,6 +54,7 @@ moduleApp.controller('SearchConcertController', function ($scope, concertService
 });
 
 moduleApp.controller('LoginController', function ($scope, concertService) {
+	console.log("CONTROLLER "+ $scope);
 	$scope.createAccount = function(){
 		console.log("Create Account for: " + $scope.email + " "+ $scope.password);
 	}
@@ -82,7 +63,7 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 		console.log("Password Recovered for: " + $scope.email);
 	}
 	
-	$scope.facebookLoginEvent = function(){
+	$scope.loginWithFacebook = function(){
 		$("body").css("cursor", "wait");
 		$.ajaxSetup({ cache: true });
 		$.getScript('//connect.facebook.net/en_UK/all.js', function(){
@@ -92,12 +73,11 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 	
 	$scope.logoutEvent = function(){
 		FB.logout(handleSessionResponse);
-		$scope.isLogButtonVisible = true;
-		$scope.isLogoutButtonVisible = false;
+		$scope.isLoginButtonVisible = true;
 	}
 	
 	
-	function loginFacebook($scope){
+	function loginFacebook(){
 	// initialize the Facebook Connect JS object by calling the init function. It only requires the API key.
 	FB.init(
 		{
@@ -142,9 +122,10 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 			function(response) {
 				if(response.error_msg == "" || response.error_msg == undefined){
 					var user = response[0];
-					$('#user-info').html('<img src="' + user.pic + '">' + user.name).show('fast');
+					$scope.userPicture = user.pic;
+					$scope.userName = user.name;
+					//$('#user-info').html('<img src="' + user.pic + '">' + user.name).show('fast');
 					$scope.isLoginButtonVisible = false;
-					$scope.isLogoutButtonVisible = true;
 					$("body").css("cursor", "default");
 				}
 			}
