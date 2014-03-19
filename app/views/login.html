@@ -1,11 +1,11 @@
 <div class="large-12 columns">
 	<ul class="button-group right">
 		<li>
-			<div user-info ng-hide="isLoginButtonVisible" class="large 6-columns"></div>
+			<div id="user-info" user-info ng-hide="isLoginButtonVisible" class="large 6-columns"></div>
 		</li>
 		<li>
 			<a href="#" data-reveal-id="loginModal" ng-show="isLoginButtonVisible" data-reveal class="button">Login</a>
-			<a href="#" ng-hide="isLoginButtonVisible" class="button">Logout</a>
+			<a href="#" ng-hide="isLoginButtonVisible" ng-click="logout()" class="button">Logout</a>
 		</li>
 	</ul>
 	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>

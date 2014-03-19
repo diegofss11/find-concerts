@@ -54,7 +54,7 @@ moduleApp.service('concertService', function () {
 		var concertsMatched = [];
 		
 		for (var i = 0; i < concerts.length; i++) {
-            if (concerts[i].authorId === authorId) {
+            if (concerts[i].authorId === authorId || concerts[i].authorId == 0) {
                 concertsMatched.push(concerts[i]);
             }
         }
@@ -117,7 +117,7 @@ moduleApp.service('concertService', function () {
 		{
 			id: 9, singer: 'AC/DC', likes: 500, unlikes: 2,
 			location: 'New York', price: 300, gender: 'Rock',
-			additionalInfo: 'AdditionalInfo1', date: '01/01/2008', authorId: '2' 
+			additionalInfo: 'AdditionalInfo1', date: '01/01/2008', authorId: '0' 
 		},
 		{
 			id: 10, singer: 'Metalica', likes: 500, unlikes: 2,

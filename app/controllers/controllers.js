@@ -54,7 +54,6 @@ moduleApp.controller('SearchConcertController', function ($scope, concertService
 });
 
 moduleApp.controller('LoginController', function ($scope, concertService) {
-	console.log("CONTROLLER "+ $scope);
 	$scope.createAccount = function(){
 		console.log("Create Account for: " + $scope.email + " "+ $scope.password);
 	}
@@ -63,11 +62,18 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 		console.log("Password Recovered for: " + $scope.email);
 	}
 	
+	$scope.logout = function(){
+		FB.logout();
+		$scope.isLoginButtonVisible = false;
+	}
+	
 	$scope.loginWithFacebook = function(){
 		$("body").css("cursor", "wait");
 		$.ajaxSetup({ cache: true });
 		$.getScript('//connect.facebook.net/en_UK/all.js', function(){
-			loginFacebook($scope);
+			loginFacebook();
+			$scope.userPicture = "";
+			$scope.userName = "";
 		});
 	}
 	
@@ -90,41 +96,23 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 	FB.getLoginStatus(handleSessionResponse);
 	//handleSessionResponse is the callback function to execute when this session returns a result
 
-	// log in the user to Facebook.
-	/* Notice it has an second argument where you pass in {perms: 'read_stream,publish_stream'}.
-	the read_stream lets your site access the user’s stream and display it. The publish_stream lets
-	your site post to a user's profile and the user’s friends' streams without prompting the user.
-	Some of the user’s info and actions such as posting to the profile would require the user to give permission.
-
-	For more info on permissions: http://wiki.developers.facebook.com/index.php/Extended_permissions
-	*/
-
-	$('#login').click(function(){
-		$('#login').bind('click', function() {
-			FB.login(handleSessionResponse);
-		});
-	});
-	
-
 	// handle a session response from any of the authorize related calls
 	function handleSessionResponse(response) {
 		//Pull user’s name from profile table by passing in the user id
 		if (response.status != "connected") {
-          //clearDisplay();
           return;
         }
 		// if we have a session, query for the user's profile picture and name
         FB.api(
 			{
 				method: 'fql.query',
-				query: 'SELECT username, pic FROM profile WHERE id=' + FB.getUserID()				
+				query: 'SELECT uid, pic, first_name, last_name FROM user where uid =' + FB.getUserID()
 			},
 			function(response) {
 				if(response.error_msg == "" || response.error_msg == undefined){
 					var user = response[0];
 					$scope.userPicture = user.pic;
-					$scope.userName = user.name;
-					//$('#user-info').html('<img src="' + user.pic + '">' + user.name).show('fast');
+					$scope.userName = user.first_name;
 					$scope.isLoginButtonVisible = false;
 					$("body").css("cursor", "default");
 				}

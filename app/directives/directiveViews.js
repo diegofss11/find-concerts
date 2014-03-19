@@ -13,13 +13,5 @@ moduleApp.directive('loginPage', function(){
 moduleApp.directive('userInfo', function() {
     return {
 		template: "<img src='{{userPicture}}'> {{userName}}",
-		link: function(scope,elem,attrs){
-			elem.bind('click',function(){
-				elem.css('background-color','white');
-				scope.$apply(function(){
-					scope.color="white";
-				});
-			});  
-		}			
 	};
 });
