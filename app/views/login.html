@@ -4,8 +4,8 @@
 			<div id="user-info" user-info ng-hide="isLoginButtonVisible" class="large 6-columns"></div>
 		</li>
 		<li>
-			<a href="#" data-reveal-id="loginModal" ng-show="isLoginButtonVisible" data-reveal class="button">Login</a>
-			<a href="#" ng-hide="isLoginButtonVisible" ng-click="logout()" class="button">Logout</a>
+			<a data-reveal-id="loginModal" ng-show="isLoginButtonVisible" data-reveal class="button">Login</a>
+			<a ng-hide="isLoginButtonVisible" ng-click="logout()" class="button">Logout</a>
 		</li>
 	</ul>
 	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>
@@ -24,7 +24,7 @@
 			</div>
 		</form>
 		<div class="createAccountDiv">
-			<a href="#" data-reveal-id="createAccountModal" data-reveal>Create account</a>
+			<a data-reveal-id="createAccountModal" data-reveal>Create account</a>
 		</div> 
 		<div class="lostYourPasswordDiv">
 			<a href="#" data-reveal-id="lostPasswordModal" data-reveal>Lost your password?</a>

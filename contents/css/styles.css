@@ -71,9 +71,35 @@ body {
 	margin-left: -15%;
 }
 
+.detailConcertModalDiv{
+	width: 40%;
+	text-align: center;
+	margin-left: -22%;
+}
+
 .detailLink{
 	font-size: 15px;
 	text-align:center;
+	font-weight: bold;
+}
+
+.informationDiv{
+	padding-left: 20px;
+	padding-top: 50px;
+	text-align: left;
+}
+
+.imgDetailDiv{
+	padding: 10px;
+}
+
+.likeDiv{
+	margin-bottom: 15px;
+}
+
+.goingDiv{
+	padding-top: 5px;
+	font-size: 18px;
 	font-weight: bold;
 }
 
@@ -91,6 +117,17 @@ body {
 
 .loginSpan2{
 	font-size: 15px;
+}
+
+.detailSpan1{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.detailSpan2{
+	font-size: 15px;
+	text-align: center;
 }
 
 .createAccountDiv{

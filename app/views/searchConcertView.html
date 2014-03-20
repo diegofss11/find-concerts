@@ -32,9 +32,34 @@
 					<div class="priceDiv">{{concert.price | currency}}</div>
 				</div>
 				<div class="panel" style="height: 50px; text-align:center">
-					<a href="#/editConcert/{{concert.id}}" data-reveal-id="myModal" data-reveal class="detailLink">Details</a>
+					<a data-reveal-id="detailConcertModal" ng-click="detailConcertClick(concert)" data-reveal class="detailLink">Details</a>
 				</div>
 			</div>
 		</div>
+		<div class="reveal-modal detailConcertModalDiv" id="detailConcertModal" data-reveal>
+			<div class="large-12 columns">
+				<span class="detailSpan1">{{concert.singer}}</span> <br/><span class="detailSpan2">in {{concert.location}}</span>
+			</div>
+			<div class="large-5 columns imgDetailDiv">
+				<div class="large-12 coluns imgDetailDiv" >
+					<img src="http://placehold.it/300x240&text=[img]"></img>
+					<div class="goingDiv">I am going <img src="http://placehold.it/40x40&text=[OK]"></img></div>
+				</div>
+			</div>
+			<div class="large-12 colums informationDiv">
+					{{concert.location}} - {{concert.date | date}}
+					The price is {{concert.price}}
+					
+			</div>
+			<div class="large-12 columns likeDiv">
+				<a><img src="http://placehold.it/40x40&text=[LIKE]"></img></a>  
+				<a><img src="http://placehold.it/40x40&text=[DONT LIKE]"></img></a>
+			</div>
+			<div>
+				<a class="close-reveal-modal">×</a>
+			</div>
+		</div>
 	</div>
-</div>    
+</div> 
+<!-- javascript utils for page -->
+<script src="/app/controllers/SearchConcertController.js"></script>   

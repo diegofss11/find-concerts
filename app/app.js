@@ -27,6 +27,11 @@ moduleApp.config(function ($routeProvider) {
             {
                 controller: 'SearchConcertController',
                 templateUrl: '/app/views/searchConcertView.html'
-            })				
+            })		
         .otherwise({ redirectTo: '/' });
-});
+})
+.run(function($rootScope) { //run everytime the page is load
+    $rootScope.$on('$viewContentLoaded', function () {
+      $(document).foundation();
+    });
+  });
