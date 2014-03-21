@@ -20,7 +20,8 @@
 			<hr>
 			</div>
 		  </div>
-		
+		<!-- <div class="pageTitle">{{pageTitle}}</div> -->
+		<title ng-bind="'MyApp - ' + $root.title">MyApp - Test</title>
 		<!-- Main content -->
 		<div class="row" ng-view></div>
 		
@@ -49,9 +50,14 @@
 			<script src="/contents/js/vendor/placeholder.js"></script>			
 			<script src="/contents/js/foundation/foundation.dropdown.js"></script>
 
-			<!-- App libs -->
+			<!-- javascript utils for page -->
 			<script src="/app/app.js"></script>
+			<script src="/app/controllers/HomePageController.js"></script>				
+			<script src="/app/controllers/CreateConcertController.js"></script>
 			<script src="/app/controllers/LoginConcertController.js"></script>	
+			<script src="/app/controllers/EditConcertController.js"></script>
+			<script src="/app/controllers/EditConcertController.js"></script>
+			<script src="/app/controllers/SearchConcertController.js"></script>  
 			<script src="/app/services/services.js"></script>			
 			<script src="/app/directives/directiveViews.js"></script>
 		
