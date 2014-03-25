@@ -5,8 +5,9 @@ moduleApp.run(['$rootScope', function($rootScope){
 }]);
 
 //This configures the routes and associates each route with a view and a controller
-moduleApp.config(function ($routeProvider) {
-    $routeProvider
+moduleApp.config(function ($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+	$routeProvider
         .when('/',
             {
                 controller: 'HomePageController',
@@ -43,8 +44,8 @@ moduleApp.config(function ($routeProvider) {
       $(document).foundation();
     });
   });
-  
+  /*
 $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
     //Change page title, based on Route information
     $rootScope.title = $route.current.title;
-});
+});*/

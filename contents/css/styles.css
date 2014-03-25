@@ -146,6 +146,15 @@ body {
 	text-align: center;
 }
 
+.itensDetail{
+	padding-top: 20px;
+	padding-left: 15px;
+}
+
+.itensDetail .title{
+	font-weight: bold;
+}
+
 #user-info{
 	width: 150px;
 	height: 75px;

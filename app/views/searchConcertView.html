@@ -46,8 +46,12 @@
 				</div>
 			</div>
 			<div class="large-12 colums informationDiv">
-					{{concert.location}} - {{concert.date | date}}
-					The price is {{concert.price}}
+					<div class="itensDetail">
+						<span class="title">Location: </span>{{concert.location}} - {{concert.date | date}}
+					</div>
+					<div class="itensDetail">
+						<span class="title">Price: </span> {{concert.price | currency }}
+					</div>
 					
 			</div>
 			<div class="large-12 columns likeDiv">
