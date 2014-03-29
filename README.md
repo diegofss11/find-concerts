@@ -62,7 +62,7 @@ Our client application is a straight HTML/Javascript application but our develop
   
 * To run the project in grunt server you must run inside the root folder:
     ```
-    grun
+    grunt
     ```
 
 Doing this the project will be avaiable in localhost:9001
