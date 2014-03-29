@@ -6,8 +6,8 @@ This software is for academic proposal
 
 ## Stack
 
-* BackEnd: C# - Consuming webServices through WCF 
-* FrontEnd [AngularJS](http://www.angularjs.org/) on the client
+* ServerSide: C# - Consuming webServices through WCF 
+* ClientSide [AngularJS](http://www.angularjs.org/) on the client
 * CSS based on [Foundation - Zurb](http://foundation.zurb.com/)
 
 ## Installation
@@ -59,5 +59,13 @@ Our client application is a straight HTML/Javascript application but our develop
     ```
 
   (This will install the dependencies declared in the client/package.json file)
+  
+* To run the project in grunt server you must run inside the root folder:
+    ...
+    grun
+    ...
+
+Doing this the project will be avaiable in localhost:9001
+
   
 STILL ON GOING ...
