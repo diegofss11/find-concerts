@@ -117,12 +117,12 @@ moduleApp.service('concertService', function () {
 		{
 			id: 9, singer: 'AC/DC', likes: 500, unlikes: 2,
 			location: 'New York', price: 300, gender: 'Rock',
-			additionalInfo: 'AdditionalInfo1', date: '01/01/2008', authorId: '0' 
+			additionalInfo: 'AdditionalInfo1', date: '04/28/2014', authorId: '0', time: '07:00 am' 
 		},
 		{
 			id: 10, singer: 'Metalica', likes: 500, unlikes: 2,
 			location: 'São Paulo', price: 500, gender: 'Metal',
-			additionalInfo: 'AdditionalInfo1', date: '01/01/2009', authorId: '2' 
+			additionalInfo: 'AdditionalInfo1', date: '04/28/2009', authorId: '2' 
 		},        
     ];	
 });

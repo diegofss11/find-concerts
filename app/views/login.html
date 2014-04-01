@@ -7,10 +7,13 @@
 			<a data-reveal-id="loginModal" ng-show="isLoginButtonVisible" data-reveal class="button">Login</a>
 			<a ng-hide="isLoginButtonVisible" ng-click="logout()" class="button">Logout</a>
 		</li>
+		<div id="fb-root"></div>
 	</ul>
 	<div class="reveal-modal loginModalDiv" id="loginModal" data-reveal>
 		<span class="loginSpan1">Login in</span> <br/><span class="loginSpan2">to your account</span>
 		<br/>
+		<fb:login-button show-faces="true" max-rows="1" 
+			size="large"></fb:login-button>
 		<a class="facebookLoginLink" id="loginFacebookLink" ng-click="loginWithFacebook()" >Log in with Facebook</a>
 		<form ng-submit="login()" >
 			<div class="large-12 columns" style="padding: 20px;" >
