@@ -1,6 +1,17 @@
 moduleApp.service('concertService', function () {
 	this.findAll = function () {
-        return concerts;
+        $.soap({
+    		url: 'http://findconcertsservice.cloudapp.net/FindConcertsService.svc/',
+    		method: 'findAll',    
+ 			data: {},
+
+    		success: function (soapResponse) {
+        		alert(1);
+    		},
+    		error: function (SOAPResponse) {
+        		alert("dieguxo boiola");
+    		}
+		});
     };
 	
 	this.addConcert = function (newConcert) {
