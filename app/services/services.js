@@ -1,18 +1,27 @@
 moduleApp.service('concertService', function () {
 	this.findAll = function () {
-        $.soap({
-    		url: 'http://findconcertsservice.cloudapp.net/FindConcertsService.svc/',
-    		method: 'findAll',    
- 			data: {},
+      	
+      	/*makeCorsRequest('http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json',
+      		'GET');*/
 
-    		success: function (soapResponse) {
-        		alert(1);
-    		},
-    		error: function (SOAPResponse) {
-        		alert("dieguxo boiola");
-    		}
-		});
-    };
+      	/*under same-origin-policy
+      	Cross-domain ajax with Cross-Origin Resource Sharing (CORS), 
+      	using HTTP Headers to allow both browsers and server more about each other due to different domain XMLHttpRequest */
+
+      	$.ajax({
+      		url:"http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json", 
+      		dateType: "jsonp",
+      		
+      		success:function(data) {
+         		console.log("Data retrieve successfully")
+         		concerts = data;
+         		return concerts;
+         	},
+      		error: function(data){
+      			alert("Error loading data");
+      		}
+  	 	});
+	};
 	
 	this.addConcert = function (newConcert) {
         var topID = concerts.length + 1;
@@ -83,7 +92,7 @@ moduleApp.service('concertService', function () {
     };
 	
 	
-	
+	/*
     var concerts = [
 		{
 			id: 1, singer: 'Eric Johnson', likes: 500, unlikes: 2,
@@ -135,5 +144,5 @@ moduleApp.service('concertService', function () {
 			location: 'São Paulo', price: 500, gender: 'Metal',
 			additionalInfo: 'AdditionalInfo1', date: '04/28/2009', authorId: '2' 
 		},        
-    ];	
+    ];*/	
 });
