@@ -24,11 +24,11 @@
 	    <div class="row">
 			<div ng-repeat="concert in concerts | orderBy:'date'" class="large-4 small-6 columns">
 				<div class="concertTopDiv">
-					<div class="singerDiv">{{concert.singer}}</div>
+					<div class="singerDiv">{{concert.Singer}}</div>
 					<br/> 
-					<div class="locationDiv">{{concert.location}} - {{concert.date | date}}</div>
+					<div class="locationDiv">{{concert.Location}} - {{concert.Date | date}}</div>
 					<br/>
-					<div class="priceDiv">{{concert.price | currency}}</div>
+					<div class="priceDiv">{{concert.Price | currency}}</div>
 				</div>
 				<div class="panel" style="height: 50px; text-align:center">
 					<a data-reveal-id="detailConcertModal" ng-click="detailConcertClick(concert)" data-reveal class="detailLink">Details</a>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="reveal-modal detailConcertModalDiv" id="detailConcertModal" data-reveal>
 			<div class="large-12 columns">
-				<span class="detailSpan1">{{concert.singer}}</span> <br/><span class="detailSpan2">in {{concert.location}}</span>
+				<span class="detailSpan1">{{concert.Singer}}</span> <br/><span class="detailSpan2">in {{concert.Location}}</span>
 			</div>
 			<div class="large-5 columns imgDetailDiv">
 				<div class="large-12 coluns imgDetailDiv" >
@@ -47,10 +47,10 @@
 			</div>
 			<div class="large-12 colums informationDiv">
 					<div class="itensDetail">
-						<span class="title">Location: </span>{{concert.location}} - {{concert.date | date}}
+						<span class="title">Location: </span>{{concert.Location}} - {{concert.Date | date}}
 					</div>
 					<div class="itensDetail">
-						<span class="title">Price: </span> {{concert.price | currency }}
+						<span class="title">Price: </span> {{concert.Price | currency }}
 					</div>
 					
 			</div>
@@ -63,4 +63,4 @@
 			</div>
 		</div>
 	</div>
-</div> 
+</div>

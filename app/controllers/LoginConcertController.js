@@ -15,11 +15,17 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 	$scope.loginWithFacebook = function(){
 		$("body").css("cursor", "wait");
 		$.ajaxSetup({ cache: true });
-		$.getScript('//connect.facebook.net/en_UK/all.js', function(){
-			loginFacebook();
-			$scope.userPicture = "";
-			$scope.userName = "";
-		});
+		//loading a javascript in the server and then execute it
+		$.ajax({
+  			url: '//connect.facebook.net/en_UK/all.js',
+  			dataType: "script",
+
+  			success: function(){
+  				loginFacebook();
+  				$scope.userPicture = "";
+				$scope.userName = "";
+  			}
+		});		
 	}
 	
 	$scope.logoutEvent = function(){

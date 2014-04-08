@@ -2,7 +2,7 @@ moduleApp.controller('SearchConcertController', function ($scope, concertService
 	$scope.pageTitle = "Search Concerts";
 	
 	$scope.findAll = function(){
-		$scope.concerts = concertService.findAll();		
+		$scope.concerts = concertService.findAll();	
 	}
 	
 	$scope.detailConcertClick = function(concert){

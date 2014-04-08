@@ -1,45 +1,66 @@
 moduleApp.service('concertService', function () {
-	this.findAll = function () {
-      	
-      	/*makeCorsRequest('http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json',
-      		'GET');*/
+	var baseUrl = "http://findconcertsservice.cloudapp.net/FindConcertsService.svc/";
 
-      	/*under same-origin-policy
-      	Cross-domain ajax with Cross-Origin Resource Sharing (CORS), 
-      	using HTTP Headers to allow both browsers and server more about each other due to different domain XMLHttpRequest */
+	this.findAll = function () {
+      	var concerts;
 
       	$.ajax({
-      		url:"http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json", 
+      		url: baseUrl + "findAll?format=json", 
       		dateType: "jsonp",
-      		
+      		async: false,
       		success:function(data) {
          		console.log("Data retrieve successfully")
          		concerts = data;
-         		return concerts;
          	},
       		error: function(data){
       			alert("Error loading data");
       		}
   	 	});
+      
+      	return concerts; 
+		
+		/*makeCorsRequest('http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json',
+      		'GET');*/
+
+      	/*under same-origin-policy
+      	Cross-domain ajax with Cross-Origin Resource Sharing (CORS), 
+      	using HTTP Headers to allow both browsers and server more about each other due to different domain XMLHttpRequest 
+      	*/  
 	};
 	
 	this.addConcert = function (newConcert) {
-        var topID = concerts.length + 1;
+        var topID = 1;
 			//authorId = FB.getUserID();
 		
-        concerts.push({
-            id: topID,
-            singer: newConcert.singer,
-            location: newConcert.location,
-            price: newConcert.price,
-			gender: newConcert.gender,
-			additionalInfo: newConcert.additionalInfo,
-			date: newConcert.date + newConcert.time,
-			likes: 0,
-			unlikes: 0,
-			authorId: 0
-        });
+		var newConcert  = {
+			'Id': topID,
+            'Singer': newConcert.singer,
+            'Location': newConcert.location,
+            'Price': newConcert.price,
+			'Gender': newConcert.gender,
+			'AdditionalInfo': newConcert.additionalInfo,
+			'Date': newConcert.date /*+ newConcert.time*/,
+			'Likes': 0,
+			'Unlikes': 0,
+			'AuthorId': 0
+		}
+
+		$.ajax({
+      		url: baseUrl + "addConcert?format=json", 
+      		type: "PUT",  
+      		data: JSON.stringify(newConcert),
+      		contentType: "application/json",
+
+      		success:function(result) {
+         		console.log("Saved successfully")
+         		concerts = data;
+         	},
+      		error: function(result){
+      			alert("Error saving concert");
+      		}
+  	 	});
 		
+
 		console.log("Saving - Singer: " + newConcert.singer + 
 					", Location: " + newConcert.location + ", Price: " + newConcert.price + 
 					", Date: " + newConcert.date + ", Time: " + newConcert.time + 
@@ -47,12 +68,19 @@ moduleApp.service('concertService', function () {
     };
 	
 	this.getConcert = function (id) {
-        for (var i = 0; i < concerts.length; i++) {
-            if (concerts[i].id === id) {
-                return concerts[i];
-            }
-        }
-        return null;
+       concerts = null;
+        $.ajax({
+      		url: baseUrl + "getConcert/"+ id +"?format=json", 
+      		type: "GET",  
+      		async: false,
+			success:function(result) {
+         		concerts = result;
+         	},
+      		error: function(result){
+      			alert("Error loading concert");
+      		}
+  	 	});
+        return concerts;
     };
 	
 	this.searchBy = function (concert) {
