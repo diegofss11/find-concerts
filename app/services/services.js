@@ -1,13 +1,36 @@
-moduleApp.service('concertService', function () {
+moduleApp.service('concertService', function ($http) {
 	var baseUrl = "http://findconcertsservice.cloudapp.net/FindConcertsService.svc/";
 
 	this.findAll = function () {
-      	var concerts;
+      	/*$http({
+       		url: baseUrl + "findAll?format=json",
+       		method:"GET",
+       		
+       		headers: {
+                  'Authorization': 'Basic dGVzdDp0ZXN0',
+                  'Content-Type': 'application/x-www-form-urlencoded'
+       		}
+       	});*/
 
+       	$http.get( baseUrl + "findAll?format=json")
+       		.success(function(result) {
+        		console.log("Data retrieve successfully")
+        		concerts = result;
+        	})
+       		.error(function() {
+            	console.log("error");
+       		});
+    	       		
+  	
+
+      	/*var concerts;
+      	$.support.cors = true;
       	$.ajax({
       		url: baseUrl + "findAll?format=json", 
-      		dateType: "jsonp",
+      		dateType: "json",
+      		type: 'GET',
       		async: false,
+      		crossDomain: true,
       		success:function(data) {
          		console.log("Data retrieve successfully")
          		concerts = data;
@@ -17,10 +40,10 @@ moduleApp.service('concertService', function () {
       		}
   	 	});
       
-      	return concerts; 
+      	return concerts; */
 		
 		/*makeCorsRequest('http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json',
-      		'GET');*/
+      		'GET');
 
       	/*under same-origin-policy
       	Cross-domain ajax with Cross-Origin Resource Sharing (CORS), 
@@ -45,7 +68,20 @@ moduleApp.service('concertService', function () {
 			'AuthorId': 0
 		}
 
-		$.ajax({
+
+		
+        $http.post(baseUrl + 'addConcert?format=json', 
+        	{ 'data': JSON.stringify(newConcert) })
+        	.success(function(result) {
+            	console.log(result);
+            	concerts = data;
+        	})
+        	.error(function() {
+            	console.log("error");
+       	 	});
+    	
+
+		/*$.ajax({
       		url: baseUrl + "addConcert?format=json", 
       		type: "PUT",  
       		data: JSON.stringify(newConcert),
@@ -58,7 +94,7 @@ moduleApp.service('concertService', function () {
       		error: function(result){
       			alert("Error saving concert");
       		}
-  	 	});
+  	 	});*/
 		
 
 		console.log("Saving - Singer: " + newConcert.singer + 

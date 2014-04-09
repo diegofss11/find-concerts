@@ -5,8 +5,12 @@ moduleApp.run(['$rootScope', function($rootScope){
 }]);
 
 //This configures the routes and associates each route with a view and a controller
-moduleApp.config(function ($routeProvider, $locationProvider) {
+moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
     //$locationProvider.html5Mode(true);
+    //Enable cross domain calls
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 	$routeProvider
         .when('/',
             {
