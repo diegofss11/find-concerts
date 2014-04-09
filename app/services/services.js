@@ -12,19 +12,20 @@ moduleApp.service('concertService', function ($http) {
        		}
        	});*/
 
-       	$http.get( baseUrl + "findAll?format=json")
+       	/*$http.get( baseUrl + "findAll?format=json")
        		.success(function(result) {
         		console.log("Data retrieve successfully")
         		concerts = result;
         	})
        		.error(function() {
             	console.log("error");
-       		});
+       		});*/
     	       		
   	
 
-      	/*var concerts;
+      	var concerts;
       	$.support.cors = true;
+        $http.defaults.useXDomain = true;
       	$.ajax({
       		url: baseUrl + "findAll?format=json", 
       		dateType: "json",
@@ -40,10 +41,10 @@ moduleApp.service('concertService', function ($http) {
       		}
   	 	});
       
-      	return concerts; */
+      	return concerts;
 		
 		/*makeCorsRequest('http://findconcertsservice.cloudapp.net/FindConcertsService.svc/findAll?format=json',
-      		'GET');
+      		'GET')
 
       	/*under same-origin-policy
       	Cross-domain ajax with Cross-Origin Resource Sharing (CORS), 
@@ -69,7 +70,7 @@ moduleApp.service('concertService', function ($http) {
 		}
 
 
-		
+		/*
         $http.post(baseUrl + 'addConcert?format=json', 
         	{ 'data': JSON.stringify(newConcert) })
         	.success(function(result) {
@@ -79,11 +80,11 @@ moduleApp.service('concertService', function ($http) {
         	.error(function() {
             	console.log("error");
        	 	});
-    	
+    	*/
 
-		/*$.ajax({
+		$.ajax({
       		url: baseUrl + "addConcert?format=json", 
-      		type: "PUT",  
+      		type: "POST",  
       		data: JSON.stringify(newConcert),
       		contentType: "application/json",
 
@@ -94,7 +95,7 @@ moduleApp.service('concertService', function ($http) {
       		error: function(result){
       			alert("Error saving concert");
       		}
-  	 	});*/
+  	 	});
 		
 
 		console.log("Saving - Singer: " + newConcert.singer + 
@@ -135,10 +136,11 @@ moduleApp.service('concertService', function ($http) {
     };
 	
 	this.searchByAuthor = function(authorId){
-		var concertsMatched = [];
+		var concertsMatched = [],
+        concerts = this.findAll();
 		
 		for (var i = 0; i < concerts.length; i++) {
-            if (concerts[i].authorId === authorId || concerts[i].authorId == 0) {
+            if (concerts[i].AuthorId == authorId || concerts[i].AuthorId == 0) {
                 concertsMatched.push(concerts[i]);
             }
         }

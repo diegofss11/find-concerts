@@ -10,7 +10,8 @@ moduleApp.controller('SearchConcertController', function ($scope, concertService
 	}
 	
 	$scope.searchByAuthor = function(){
-		var authorId = FB.getUserID();
+		//var authorId = FB.getUserID();
+		var authorId = 1;
 		$scope.concerts = concertService.searchByAuthor(authorId);
 	}
 });
