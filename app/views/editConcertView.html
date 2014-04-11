@@ -5,14 +5,14 @@
 	    <div class="row">
 			<div ng-repeat="concert in concerts | orderBy:'date'" class="large-4 small-6 columns">
 				<div class="concertTopDiv">
-					<div class="singerDiv">{{concert.Singer}}</div>
+					<div class="singerDiv">{{concert.singer}}</div>
 					<br/> 
-					<div class="locationDiv">{{concert.Location}} - {{concert.Date | date}}</div>
+					<div class="locationDiv">{{concert.location}} - {{concert.date | date}}</div>
 					<br/>
-					<div class="priceDiv">{{concert.Price | currency}}</div>
+					<div class="priceDiv">{{concert.price | currency}}</div>
 				</div>
 				<div class="panel" style="height: 50px; text-align:center">
-					<a href="#/editConcert/{{concert.Id}}" class="detailLink" ng-model="EditConcertController" ng-click="">Edit</a>
+					<a href="#/editConcert/{{concert.id}}" class="detailLink" ng-model="EditConcertController" ng-click="">Edit</a>
 				</div>
 			</div>
 		</div>
