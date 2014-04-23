@@ -1,0 +1,11 @@
+<div>
+    <h3>Delete concert</h3>
+</div>
+<div class="ng-scope">
+	<p>Are you sure do you want do delete the concert <b>{{ concertSelected.singer }}?</b></p>
+</div>
+<div class="modal-footer">
+    <button class="alert button small" ng-click="ok()">Delete</button>
+    <button class="secondary button small" ng-click="cancel()">Cancel</button>
+</div>
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

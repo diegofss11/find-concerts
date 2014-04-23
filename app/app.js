@@ -1,4 +1,4 @@
-var moduleApp = angular.module('concertApp', ['ngRoute']);
+var moduleApp = angular.module('concertApp', ['ngRoute', 'mm.foundation']);
 
 moduleApp.run(['$rootScope', function($rootScope){
     $rootScope.title = 'hehe';

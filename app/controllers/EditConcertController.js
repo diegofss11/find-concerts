@@ -31,6 +31,5 @@ moduleApp.controller('EditConcertController', function ($scope, $routeParams, co
 	
 	$scope.updateButtonEvent = function(){
 		$scope.isEditButtonVisible = true;
-	}  
-	
+	}	
 });

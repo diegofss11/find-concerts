@@ -27,8 +27,7 @@ moduleApp.service('concertService', function ($http) {
         $.support.cors = true;
         $http.defaults.useXDomain = true;
 
-       	var jsonConcert  = buildJsonObject(newConcert);
-
+        var jsonConcert  = this.buildJsonObject(newConcert);
 		$.ajax({			
       		url: baseUrl + "/concerts", 
       		type: "POST",  
@@ -50,7 +49,7 @@ moduleApp.service('concertService', function ($http) {
     this.getConcert = function (id) {
        var concerts;
         $.ajax({
-      		url: baseUrl + "/concerts/"+ id, 
+        	url: baseUrl + "/concert/"+ id, 
       		type: "GET",  
       		async: false,
       		crossDomain: true,
@@ -93,6 +92,7 @@ moduleApp.service('concertService', function ($http) {
 	};
 	
 	this.deleteConcert = function (id) {
+        alert("delete called for " +id)
         $.ajax({
       		url: baseUrl + "/concerts/"+ id, 
       		type: "DELETE",  
@@ -105,25 +105,24 @@ moduleApp.service('concertService', function ($http) {
       			alert("Error deleting concert");
       		}
   	 	});        
-    };
+    };    	
 
-    buildJsonObject = function(newConcert){
-    	var topID = 1;
-		//authorId = FB.getUserID();
+    this.buildJsonObject = function(newConcert){
+    	var nextId = this.findAll().length + 1;
+    	//authorId = FB.getUserID();    		
 		
 		var jsonConcert  = {
 			additionalInfo: newConcert.additionalInfo,
 			authorId: 0,
 			date: newConcert.date /*+ newConcert.time*/,
 			gender: newConcert.gender,
-			id: topID,
+			id: nextId,
 			likes: 0,
 			location: newConcert.location,
 			price: newConcert.price,
 			singer: newConcert.singer,
             unlikes: 0
         }
-
 		return jsonConcert;
     }	
 });

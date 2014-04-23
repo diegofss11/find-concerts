@@ -97,6 +97,14 @@ body {
 	margin-bottom: 15px;
 }
 
+.likeDiv a{
+	margin: 0 5px 10px 5px;
+}
+
+.likeDiv a:hover{
+	font-weight: bold;
+}
+
 .goingDiv{
 	padding-top: 5px;
 	font-size: 18px;
@@ -163,3 +171,43 @@ body {
 #user-info img{
 	width: 50px;
 	height: 60px;
+}
+
+.removeTrash:hover, .detailLinkEdit:hover{
+	font-weight: bold;
+	color: red;	
+}
+
+.detailLinkRemove{
+	margin-left: 20px;
+}
+
+.modalTitle{
+	font-weight: bold;
+	width: 100%;
+}
+
+.reveal-modal{
+	width: 500px;
+	position: fixed; 
+}
+
+ .size-12 { font-size: 12px; }
+      
+.size-14 { font-size: 14px; }
+    
+.size-16 { font-size: 16px; }
+      
+.size-18 { font-size: 18px; }
+      
+.size-21 { font-size: 21px; }
+      
+.size-24 { font-size: 24px; }
+      
+.size-36 { font-size: 36px; }
+      
+.size-48 { font-size: 48px; }
+      
+.size-60 { font-size: 60px; }
+      
+.size-72 { font-size: 72px; }

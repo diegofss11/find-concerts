@@ -5,24 +5,15 @@
 
 		<div class="large-12 columns">
 			<label><b>Singer</b>
-				<input type="text" ng-model="concert.singer" placeholder="John Mayer, AC/DC ...">
+				<input type="text" ng-model="searchBySinger" placeholder="John Mayer, AC/DC ...">
 			</label>
-		</div>
-
-		<div class="large-12 columns">
-			<label><b>Gender</b>
-				<input type="text" ng-model="concert.gender" placeholder="Rock, Blues, Jazz, Samba ...">
-			</label>
-		</div>
-		<div class="large-12 columns divButtonSearch">
-			<button class="button tiny [radius round]" ng-click="searchBy()">Search</button>
-		</div>
+		</div>		
 	</div>
 
 	<!-- Thumbnails -->
 	<div class="large-8 columns resultsDiv">
 	    <div class="row">
-			<div ng-repeat="concert in concerts | orderBy:'date'" class="large-4 small-6 columns">
+			<div ng-repeat="concert in concerts | orderBy:'date' | filter:searchBySinger" class="large-4 small-6 columns">
 				<div class="concertTopDiv">
 					<div class="singerDiv">{{concert.singer}}</div>
 					<br/> 
@@ -42,7 +33,10 @@
 			<div class="large-5 columns imgDetailDiv">
 				<div class="large-12 coluns imgDetailDiv" >
 					<img src="http://placehold.it/300x240&text=[img]"></img>
-					<div class="goingDiv">I am going <img src="http://placehold.it/40x40&text=[OK]"></img></div>
+					<div class="goingDiv">I am going 
+						<a ng-show="isGoing" style="color:green; font-weight:bold" ng-click="goingToConcert(false)"><i class="fi-checkbox size-24"></i></a>
+						<a ng-hide="isGoing" style="color:red; font-weight:bold" class="notGoing" ng-click="goingToConcert(true)"><i class="fi-prohibited size-24"></i></a>
+					</div>
 				</div>
 			</div>
 			<div class="large-12 colums informationDiv">
@@ -55,8 +49,8 @@
 					
 			</div>
 			<div class="large-12 columns likeDiv">
-				<a><img src="http://placehold.it/40x40&text=[LIKE]"></img></a>  
-				<a><img src="http://placehold.it/40x40&text=[DONT LIKE]"></img></a>
+				<a><i class="fi-like size-24" ></i></a>  
+				<a class="dislikeButton" ><i class="fi-dislike size-24"></i></a>
 			</div>
 			<div>
 				<a class="close-reveal-modal">×</a>
