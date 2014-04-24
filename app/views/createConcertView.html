@@ -1,5 +1,5 @@
 <div class="pageTitle">{{pageTitle}}</div>
-<div class="backLink"><a href='#'><<</a></div>
+<div class="backLink" go-back></div>
 <br/>
 <form ng-submit="addConcert()" >
   <fieldset>
@@ -28,7 +28,7 @@
     </div>
 	<div class="large-2 columns">
 		<label>Date
-			<input type="text" id="datepicker" placeholder="Date" ng-model="newConcert.date" required >
+			<input type="text" ng-model="datePicker" datepicker />
 		</label>
 	</div>
 	<div class="large-2 columns">

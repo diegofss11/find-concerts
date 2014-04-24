@@ -1,5 +1,5 @@
 moduleApp.controller('EditConcertController', function ($scope, $routeParams, concertService) {
-	$scope.pageTitle = "Update Concerts";
+	$scope.pageTitle = "Edit Concerts";
 	$scope.isEditButtonVisible = true;
 
 	var picker = new Pikaday({ 
@@ -29,7 +29,11 @@ moduleApp.controller('EditConcertController', function ($scope, $routeParams, co
 		$scope.isEditButtonVisible = true;
 	}
 	
-	$scope.updateButtonEvent = function(){
-		$scope.isEditButtonVisible = true;
+	$scope.updateConcert = function(){
+		var isSaved = concertService.addConcert($scope.concert);
+		
+		if(isSaved){
+			$scope.isEditButtonVisible = true;	
+		}
 	}	
 });

@@ -14,6 +14,12 @@ moduleApp.directive('userInfo', function() {
 	};
 });
 
+moduleApp.directive('goBack', function() {
+    return {
+        template: "<a href='#'><i class='fi-arrow-left size-24'></i></a>",
+  };
+});
+
 moduleApp.directive('revealModal', function (){
    return function(scope, elem, attrs) {
      scope.$watch(attrs.revealModal, function(val) {
@@ -25,4 +31,25 @@ moduleApp.directive('revealModal', function (){
      });
      elem.reveal();
    }
+});
+
+moduleApp.directive("datepicker", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, elem, attrs, ngModelCtrl) {
+      var updateModel = function (dateText) {
+        scope.$apply(function () {
+          ngModelCtrl.$setViewValue(dateText);
+        });
+      };
+      var options = {
+        dateFormat: "mm/dd/yy",
+        onSelect: function (dateText) {
+          updateModel(dateText);
+        }
+      };
+      elem.datepicker(options);
+    }
+  }
 });

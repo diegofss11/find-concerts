@@ -10,9 +10,9 @@
 		<link href="contents/css/styles.css" rel="stylesheet" />
 		<link href="contents/css/datetimepicker.css" rel="stylesheet" type="text/css"  />
 		<link href="contents/css/foundation-icons.css" rel="stylesheet"  />
-
+		<link href="contents/css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet"  />
 	</head>
-	<!-- defines a controllers for the body -->
+	
 	<body>
 		<!-- Header and Nav -->
 		<div class="row" ng-controller="LoginController"><login-page></login-page></div>  
@@ -23,8 +23,7 @@
 			  <!-- <img src="http://placehold.it/1000x300&text=[img]"> -->
 			<hr>
 			</div>
-		  </div>
-		<!-- <div class="pageTitle">{{pageTitle}}</div> -->
+		  </div>		
 		<title ng-bind="'MyApp - ' + $root.title">MyApp - Test</title>
 		<!-- Main content -->
 		<div class="row" ng-view></div>
@@ -42,6 +41,7 @@
 			
 			<!-- Jquery and Angular Libs -->
 			<script src="/contents/js/jquery-1.11.0.min.js"></script>
+			<script src="/contents/js/jquery-ui-1.10.4.js"></script>			
 			<script src="/contents/js/angular.min.js"></script>
 			<script src="/contents/js/angular-route.js"></script>
 			<!-- <script src="contents/js/localization/angular-locale_pt-br.js"></script> -->
@@ -59,10 +59,11 @@
 			<script src="/contents/js/pikaday.jquery.js"></script>
 			<script src="/contents/js/pikaday.js"></script>
 			<script src="/contents/js/datetimepicker.js"></script>
-			<script src="/contents/js/utils.js"></script>
+			<script src="/contents/js/utils.js"></script>			
 			
 			<!-- javascript utils for page -->
 			<script src="/app/app.js"></script>
+			<script src="/app/directives/directiveViews.js"></script>
 			<script src="/app/controllers/HomePageController.js"></script>				
 			<script src="/app/controllers/CreateConcertController.js"></script>
 			<script src="/app/controllers/LoginConcertController.js"></script>	
@@ -70,8 +71,7 @@
 			<script src="/app/controllers/EditConcertController.js"></script>
 			<script src="/app/controllers/SearchConcertController.js"></script>
 			<script src="/app/controllers/ConfirmDialogController.js"></script>  
-			<script src="/app/services/services.js"></script>			
-			<script src="/app/directives/directiveViews.js"></script>
+			<script src="/app/services/services.js"></script>	
 		
 		</footer>  
 	</body>	

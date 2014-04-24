@@ -9,12 +9,6 @@ moduleApp.controller('CreateConcertController', function ($scope, concertService
 		format: 'MM/DD/YYYY',
 	});
 
-	$('#datetimepicker2').datetimepicker({
-		datepicker:false,
-		format:'g:i a',
-		lang: 'en',
-	});
-	
 	$scope.genderTypes = ["Rock", "Blues", "Country", "Jazz", "Classic", "Popular"];
 	
 	$scope.addConcert = function(){

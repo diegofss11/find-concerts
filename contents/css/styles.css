@@ -188,8 +188,11 @@ body {
 }
 
 .reveal-modal{
-	width: 500px;
-	position: fixed; 
+	width: 400px;
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    margin: -202px 0px 0px -92px; 
 }
 
  .size-12 { font-size: 12px; }

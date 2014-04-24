@@ -1,5 +1,5 @@
 <div class="pageTitle">{{pageTitle}}</div>
-<div class="backLink"><a href='#'><<</a></div>
+<div class="backLink"><a href='#'><i class="fi-arrow-left size-24"></i></a></div>
 <br/>
 <form id="concertDetailForm" ng-init="showConcert()" ng-submit="addConcert()" >
   <fieldset>
@@ -44,10 +44,14 @@
         <textarea placeholder="Additional Info" ng-model="concert.additionalInfo" ng-disabled="isEditButtonVisible" ></textarea>
       </label>
     </div>
+
+    <input ng-show="false" id="inputId" ng-model="concert.id"></input>
+      
+   
 	
 	<div class="large-12 columns divButtonsRegister">
 		<button id="editButton"   class="button tiny secondary [radius round]" ng-show="isEditButtonVisible" ng-click="editButtonEvent()" >Edit</button>
-		<button id="updateButton" class="button tiny [radius round]" type="submit" ng-hide="isEditButtonVisible" ng-click="updateButtonEvent()" >Update</button>
+		<button id="updateButton" class="button tiny [radius round]" type="submit" ng-hide="isEditButtonVisible" ng-click="updateConcert()" >Update</button>
 		<button id="cancelButton" class="button tiny [radius round] alert" ng-hide="isEditButtonVisible" ng-click="cancelButtonEvent()">Cancel</a>
 	</div>
   </fieldset>

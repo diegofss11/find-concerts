@@ -26,11 +26,14 @@ moduleApp.service('concertService', function ($http) {
 	this.addConcert = function (newConcert) {
         $.support.cors = true;
         $http.defaults.useXDomain = true;
-
+        var type = "POST";
         var jsonConcert  = this.buildJsonObject(newConcert);
+        if(newConcert.id != "" || newConcert.id != undefined){
+        	type = "POST"
+        }        
 		$.ajax({			
       		url: baseUrl + "/concerts", 
-      		type: "POST",  
+      		type: type,  
       		contentType: "application/json; charset=utf-8",
       		dataType: "json",
       		data: JSON.stringify(jsonConcert),
@@ -108,7 +111,13 @@ moduleApp.service('concertService', function ($http) {
     };    	
 
     this.buildJsonObject = function(newConcert){
-    	var nextId = this.findAll().length + 1;
+    	var id = 0;
+    	if(newConcert.id == "" || newConcert.id == undefined){
+    		id = this.findAll().length + 1;
+    	}
+    	else{
+    		id =newConcert.id;
+    	}
     	//authorId = FB.getUserID();    		
 		
 		var jsonConcert  = {
@@ -116,7 +125,7 @@ moduleApp.service('concertService', function ($http) {
 			authorId: 0,
 			date: newConcert.date /*+ newConcert.time*/,
 			gender: newConcert.gender,
-			id: nextId,
+			id: id,
 			likes: 0,
 			location: newConcert.location,
 			price: newConcert.price,
