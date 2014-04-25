@@ -1,4 +1,4 @@
-moduleApp.controller('LoginController', function ($scope, concertService) {
+/*moduleApp.controller('LoginController', function ($scope, concertService) {
 	$scope.createAccount = function(){
 		console.log("Create Account for: " + $scope.email + " "+ $scope.password);
 	}
@@ -71,4 +71,4 @@ moduleApp.controller('LoginController', function ($scope, concertService) {
 			);		
 		}
 	}
-});
+});*/

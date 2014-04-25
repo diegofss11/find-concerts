@@ -1,0 +1,61 @@
+<h3 class="pageTitle">{{pageTitle}}</h3>
+<div class="backLink" go-back></div>
+<br/>
+<form novalidate ng-submit="saveConcert()" >
+  <fieldset>
+    <legend>Concert Information</legend>
+    <div class="large-6 columns">
+		<label>Singer
+			<input ng-disabled="isReadOnly" type="text" placeholder="Singer" ng-model="concert.singer" >
+		</label>
+	</div>
+	<div class="large-6 columns">
+		<label>Location
+			<input ng-disabled="isReadOnly" type="text" placeholder="Location" ng-model="concert.location" required >
+		</label>
+	</div>
+	<div class="large-3 columns">
+		<label>Price
+			<input type="text" ng-disabled="isReadOnly" placeholder="Price" ng-model="concert.price" required >
+		</label>
+	</div>
+	<div class="large-4 columns">
+      <label>Gender
+        <select ng-disabled="isReadOnly" ng-model="concert.gender" required >
+			<option ng-repeat="gender in genderTypes">{{gender}}</option>
+		</select>
+      </label>
+    </div>
+	<div class="large-2 columns">
+		<label>Date
+			<input ng-disabled="isReadOnly" type="text" ng-model="datePicker" datepicker />
+		</label>
+	</div>
+	<!-- <div class="large-2 columns">
+		<label>Time
+			<input type="text" ng-disabled="isReadOnly" id="datetimepicker2" placeholder="Time" ng-model="concert.time" required >
+		</label>
+	</div> -->
+	<div class="large-12 columns">
+      <label>Additional Info
+        <textarea ng-disabled="isReadOnly" placeholder="Additional Info" ng-model="concert.additionalInfo"></textarea>
+      </label>
+    </div>
+
+    <input ng-show="false" id="inputId" ng-model="concert.id"></input>
+	
+	<div class="large-12 columns divButtonsRegister">
+		<button ng-if="!isUpdateMode || !isEditButtonVisible" class="button tiny [radius round]" type="submit" >{{buttonSubmitText}}</button>
+		<a ng-if="!isUpdateMode" href='javascript:history.back()' class="button tiny [radius round] alert">Cancel</a>
+
+		<a ng-if="isUpdateMode" id="editButton" class="button tiny secondary [radius round]" ng-show="isEditButtonVisible" ng-click="editButtonEvent()" >Edit</a>
+		<!-- <button ng-if="isUpdateMode && !isEditButtonVisible" id="updateButton" class="button tiny [radius round]" type="submit" ng- ng-click="updateConcert()" >Update</button> -->
+		<button ng-if="isUpdateMode && !isEditButtonVisible" id="cancelButton" class="button tiny [radius round] alert" ng-click="cancelButtonEvent()">Cancel</a>
+
+
+		<!-- <a class="glyphicon glyphicon-pencil" ng-show="isReadOnly" ng-click="isEditable(true)"></a>
+        <button ng-if="!isReadOnly" class="btn btn-primary" type="submit">{{buttonText}}</button>
+        <button ng-if="!isReadOnly" class="btn btn-warning" ng-click="cancelAction(false)">Cancel</button> -->
+	</div>
+  </fieldset>
+</form>

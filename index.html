@@ -15,7 +15,7 @@
 	
 	<body>
 		<!-- Header and Nav -->
-		<div class="row" ng-controller="LoginController"><login-page></login-page></div>  
+		<!-- <div class="row" ng-controller="LoginController"><login-page></login-page></div>   -->
  
 		<!-- Logo (Image) -->
 		 <div class="row">
@@ -24,7 +24,6 @@
 			<hr>
 			</div>
 		  </div>		
-		<title ng-bind="'MyApp - ' + $root.title">MyApp - Test</title>
 		<!-- Main content -->
 		<div class="row" ng-view></div>
 		
@@ -34,7 +33,7 @@
 				<hr />
 				<div class="row">
 					<div class="large-12 columns">
-						<p>© Trabalho desenvolvido para a disciplina de Arquitetura de .Net</p>
+						<p>© Coursework developed for .NET Architecture subject</p>
 					</div>					
 				</div>
 			</div>
@@ -46,8 +45,7 @@
 			<script src="/contents/js/angular-route.js"></script>
 			<!-- <script src="contents/js/localization/angular-locale_pt-br.js"></script> -->
 			<script src="/contents/js/localization/angular-locale_en-us.js"></script>
-			<script src="/contents/js/foundation/mm-foundation-tpls.js"></script>
-			
+			<script src="/contents/js/foundation/mm-foundation-tpls.js"></script>			
 			
 			<!-- UI Libs - Foundation -->
 			<script src="/contents/js/foundation/foundation.js"></script>
@@ -55,24 +53,17 @@
 			<script src="/contents/js/vendor/modernizr.js"></script>
 			<script src="/contents/js/vendor/placeholder.js"></script>			
 			<script src="/contents/js/foundation/foundation.dropdown.js"></script>
-			<script src="/contents/js/moment.min.js"></script>
-			<script src="/contents/js/pikaday.jquery.js"></script>
-			<script src="/contents/js/pikaday.js"></script>
-			<script src="/contents/js/datetimepicker.js"></script>
+			<script src="/contents/js/moment.min.js"></script>			
 			<script src="/contents/js/utils.js"></script>			
 			
 			<!-- javascript utils for page -->
 			<script src="/app/app.js"></script>
-			<script src="/app/directives/directiveViews.js"></script>
+			<script src="/app/directives/DirectiveViews.js"></script>
 			<script src="/app/controllers/HomePageController.js"></script>				
-			<script src="/app/controllers/CreateConcertController.js"></script>
-			<script src="/app/controllers/LoginConcertController.js"></script>	
-			<script src="/app/controllers/EditConcertController.js"></script>
-			<script src="/app/controllers/EditConcertController.js"></script>
-			<script src="/app/controllers/SearchConcertController.js"></script>
-			<script src="/app/controllers/ConfirmDialogController.js"></script>  
-			<script src="/app/services/services.js"></script>	
-		
+			<script src="/app/controllers/ConcertController.js"></script>
+			<script src="/app/controllers/ConfirmDialogController.js"></script>
+			<script src="/app/controllers/LoginController.js"></script>   
+			<script src="/app/services/ConcertService.js"></script>	
 		</footer>  
 	</body>	
 </html>

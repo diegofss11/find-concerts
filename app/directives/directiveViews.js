@@ -41,7 +41,7 @@ moduleApp.directive("datepicker", function () {
       var updateModel = function (dateText) {
         scope.$apply(function () {
           ngModelCtrl.$setViewValue(dateText);
-          scope.this.newConcert.date = (dateText);
+          scope.this.concert.date = (dateText);
         });
       };
       var options = {

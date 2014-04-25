@@ -32,31 +32,36 @@ moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
         .when('/',
             {
                 controller: 'HomePageController',
-                templateUrl: '/app/views/mainView.html'
+                templateUrl: '/app/views/MainView.html'
 			})
 		.when('/createConcert',
             {
-                controller: 'CreateConcertController',
-                templateUrl: '/app/views/createConcertView.html',
-				title: 'Create'
+                controller: 'ConcertController',
+                templateUrl: '/app/views/ConcertForm.html',
+				title: 'Create Concert',
+                isUpdateMode: false,
+                buttonSubmitText: "Save"
             })
         .when('/editConcert/:concertId',
             {
-                controller: 'EditConcertController',
-                templateUrl: '/app/views/concertDetailView.html',
-				title: 'Edit'
+                controller: 'ConcertController',
+                templateUrl: '/app/views/ConcertForm.html',
+				title: 'Edit Concert',
+                isUpdateMode: true,
+                isReadOnly: true,
+                buttonSubmitText: "Update"
             })
 		.when('/editConcert/',
             {
-                controller: 'EditConcertController',
-                templateUrl: '/app/views/editConcertView.html',
-				title: 'Edit'
+                controller: 'ConcertController',
+                templateUrl: '/app/views/DetailConcertsView.html',
+				title: 'Concerts View'
             })
         .when('/searchConcert',
             {
-                controller: 'SearchConcertController',
-                templateUrl: '/app/views/searchConcertView.html',
-				title: 'Search'
+                controller: 'ConcertController',
+                templateUrl: '/app/views/SearchConcertView.html',
+				title: 'Search Concert'
             })		
         .otherwise({ redirectTo: '/' });
 })
@@ -64,5 +69,15 @@ moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
     $rootScope.$on('$viewContentLoaded', function () {
       $(document).foundation();
     });
-  });
+
+    $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
+        //Change page title, based on Route information
+        $rootScope.pageTitle = previousRoute.title;
+        $rootScope.isUpdateMode = previousRoute.isUpdateMode;  
+        $rootScope.isReadOnly = previousRoute.isReadOnly; 
+        $rootScope.buttonSubmitText = previousRoute.buttonSubmitText;
+    });
+});
+
+
 

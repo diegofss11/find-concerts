@@ -1,4 +1,4 @@
-moduleApp.service('concertService', function ($http) {
+moduleApp.service('ConcertService', function ($http) {
 	this.findAll = function () {
       	$.support.cors = true;
         $http.defaults.useXDomain = true;
@@ -28,12 +28,13 @@ moduleApp.service('concertService', function ($http) {
       	return concerts;
 	};
 	
-	this.addConcert = function (newConcert) {
+	this.saveConcert = function (concert) {
         $.support.cors = true;
         $http.defaults.useXDomain = true;
-        var type = "POST";
-        var jsonConcert  = this.buildJsonObject(newConcert);
-        if(newConcert.id != undefined){
+        var type = "POST",
+        	jsonConcert  = this.buildJsonObject(concert),
+        	isSaved = false;
+        if(concert.id != undefined){
         	type = "PUT"
         }        
 		$.ajax({			
@@ -47,12 +48,14 @@ moduleApp.service('concertService', function ($http) {
 
       		success:function(response) {
          		alert("Concert saved successfully");
-         		$scope.newConcert = {};
+         		isSaved = true;
          	},
       		error: function(response){
       			alert("Error saving concert");
+      			isSaved = false;
       		}
   	 	});
+  	 	return isSaved;
 	};
 
     this.getConcert = function (id) {
