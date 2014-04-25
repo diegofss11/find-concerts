@@ -35,5 +35,25 @@ moduleApp.controller('EditConcertController', function ($scope, $routeParams, co
 		if(isSaved){
 			$scope.isEditButtonVisible = true;	
 		}
-	}	
+	}
+
+	$scope.searchByAuthor = function(){
+		//var authorId = FB.getUserID();
+		var authorId = 1;
+		$scope.concerts = concertService.searchByAuthor(authorId);
+	}
+
+	$scope.deleteConcert = function($event, concert){
+		$modal.open({
+			templateUrl: '/app/views/confirmDialog.html',
+			controller: 'ConfirmDialogController',
+			resolve: {
+    			items: function () {
+        			return concert;
+    			}
+    		}
+		}).result.then(function (selectedItem) {
+	       concertService.deleteConcert(selectedItem.id);
+	    });
+	} 	
 });

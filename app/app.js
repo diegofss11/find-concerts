@@ -1,8 +1,25 @@
 var moduleApp = angular.module('concertApp', ['ngRoute', 'mm.foundation']);
 
-moduleApp.run(['$rootScope', function($rootScope){
-    $rootScope.title = 'hehe';
-}]);
+moduleApp.directive("datepicker", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, elem, attrs, ngModelCtrl) {
+      var updateModel = function (dateText) {
+        scope.$apply(function () {
+          ngModelCtrl.$setViewValue(dateText);
+        });
+      };
+      var options = {
+        dateFormat: "dd/mm/yy",
+        onSelect: function (dateText) {
+          updateModel(dateText);
+        }
+      };
+      elem.datepicker(options);
+    }
+  }
+});
 
 //This configures the routes and associates each route with a view and a controller
 moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
@@ -31,7 +48,7 @@ moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
             })
 		.when('/editConcert/',
             {
-                controller: 'SearchConcertController',
+                controller: 'EditConcertController',
                 templateUrl: '/app/views/editConcertView.html',
 				title: 'Edit'
             })

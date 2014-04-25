@@ -6,7 +6,7 @@ moduleApp.service('concertService', function ($http) {
       	Cross-domain ajax with Cross-Origin Resource Sharing (CORS), 
       	using HTTP Headers to allow both browsers and server more about each other due to different domain XMLHttpRequest 
       	*/  
-		var concerts;      	
+		var concerts;   	
       	$.ajax({
       		url: baseUrl + "/concerts", 
       		type: 'GET',
@@ -19,12 +19,11 @@ moduleApp.service('concertService', function ($http) {
       			}
       			else{
       				concerts = data;
-      			}
-         		
+      			}         		
          	},
       		error: function(data){
       			alert("Error loading data");
-      		}
+      		}      		
   	 	});
       	return concerts;
 	};
@@ -34,22 +33,23 @@ moduleApp.service('concertService', function ($http) {
         $http.defaults.useXDomain = true;
         var type = "POST";
         var jsonConcert  = this.buildJsonObject(newConcert);
-        if(newConcert.id != "" || newConcert.id != undefined){
-        	type = "POST"
+        if(newConcert.id != undefined){
+        	type = "PUT"
         }        
 		$.ajax({			
       		url: baseUrl + "/concerts", 
       		type: type,  
-      		contentType: "application/json; charset=utf-8",
-      		dataType: "json",
+      		contentType: "application/json",
+      		dataType: "text", //expects text
       		data: JSON.stringify(jsonConcert),
       		async: false,
       		crossDomain: true,
 
-      		success:function(result) {
-         		concerts = data;
+      		success:function(response) {
+         		alert("Concert saved successfully");
+         		$scope.newConcert = {};
          	},
-      		error: function(result){
+      		error: function(response){
       			alert("Error saving concert");
       		}
   	 	});

@@ -3,16 +3,14 @@ body {
 }
 
 .pageTitle{
-	font-size: 16px;
 	text-align: center;
 	font-weight: bold;
-	padding-bottom: 15px;
 }
 
 .buttonsDiv{
 	height: 300px;
 	border: none;
-	top: 50%;
+	padding-top: 100px;
 }
 
 .divButtonsRegister{
@@ -195,7 +193,7 @@ body {
     margin: -202px 0px 0px -92px; */
 }
 
- .size-12 { font-size: 12px; }
+.size-12 { font-size: 12px; }
       
 .size-14 { font-size: 14px; }
     
