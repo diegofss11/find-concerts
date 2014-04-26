@@ -5,6 +5,8 @@ body {
 .pageTitle{
 	text-align: center;
 	font-weight: bold;
+	position: relative;
+	top: -90px;
 }
 
 .buttonsDiv{
@@ -42,8 +44,7 @@ body {
 .singerDiv{
 	font-weight: bold;
 	text-align: center;
-	padding-top: 2px;
-	text-decoration: underline;
+	padding-top: 2px;	
 }
 
 .locationDiv{
@@ -191,6 +192,11 @@ body {
 	top: 50%;
     left: 50%;
     margin: -202px 0px 0px -92px; */
+}
+
+.globalIconDiv{
+	width: 140px;
+	height: 180px;
 }
 
 .size-12 { font-size: 12px; }

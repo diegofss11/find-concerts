@@ -31,8 +31,10 @@ moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider
         .when('/',
             {
-                controller: 'HomePageController',
-                templateUrl: '/app/views/MainView.html'
+                templateUrl: '/app/views/MainView.html',
+                title: "Find Concerts App",
+                mainImageUrl: '/contents/img/concertIcon.png',
+                footImageUrl: '/contents/img/EventBackGround.png'
 			})
 		.when('/createConcert',
             {
@@ -60,7 +62,7 @@ moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
         .when('/searchConcert',
             {
                 controller: 'ConcertController',
-                templateUrl: '/app/views/SearchConcertView.html',
+                templateUrl: '/app/views/SearchConcertsView.html',
 				title: 'Search Concert'
             })		
         .otherwise({ redirectTo: '/' });
@@ -76,6 +78,8 @@ moduleApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
         $rootScope.isUpdateMode = previousRoute.isUpdateMode;  
         $rootScope.isReadOnly = previousRoute.isReadOnly; 
         $rootScope.buttonSubmitText = previousRoute.buttonSubmitText;
+        $rootScope.mainImageUrl = previousRoute.mainImageUrl;
+        $rootScope.footImageUrl = previousRoute.footImageUrl;
     });
 });
 

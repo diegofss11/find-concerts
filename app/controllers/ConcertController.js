@@ -2,6 +2,7 @@ moduleApp.controller('ConcertController', function ($scope, $routeParams, $modal
 	
 	$scope.showAlert = false;
 	$scope.genderTypes = ["Rock", "Blues", "Country", "Jazz", "Classic", "Popular"];
+	$scope.isGoing = false;
 
 	$scope.saveConcert = function(){
 		var isSaved = ConcertService.saveConcert($scope.concert);
@@ -18,8 +19,7 @@ moduleApp.controller('ConcertController', function ($scope, $routeParams, $modal
 
 	$scope.showConcert = function(){
 		//grab id out of the routerParams
-		var concertId = ($routeParams.concertId) ? parseInt($routeParams.concertId) : 0;
-		
+		var concertId = ($routeParams.concertId) ? parseInt($routeParams.concertId) : 0;		
 		$scope.concert = ConcertService.getConcert(concertId);
 	}	
 
@@ -51,18 +51,6 @@ moduleApp.controller('ConcertController', function ($scope, $routeParams, $modal
 	    });
 	} 	
 
-
-
-
-
-
-
-
-
-
-
-
-	$scope.isGoing = false;
 	$scope.findAll = function(){
 		$scope.concerts = ConcertService.findAll();		
 	}	
